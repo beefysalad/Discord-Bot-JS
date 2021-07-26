@@ -57,14 +57,6 @@ client.on('message', async (msg)=>{
             msg.channel.send(`Title: ${data.results[0].title}\nSynopsis: \n${data.results[0].synopsis}`)
             
         }   
-        else if(command==='info')
-        {
-            msg.channel.send('> The bot is scripted using NodeJavaScript with the library Axios that fetches the MyAnimeList API')
-        }
-        else if(command==='src')
-        {
-            msg.channel.send('https://github.com/beefysalad/Discord-Bot-JS/blob/main/Discord%20Bot%20Javascript/main.js')
-        }
         else if(command==='j')
         {
             const connection = await msg.member.voice.channel.join()
