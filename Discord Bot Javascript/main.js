@@ -14,9 +14,11 @@ client.on('ready', () => {
         }
     });
 });
+
 client.on('message', async (msg)=>{
     const args = msg.content.slice(config.prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
+    
     try{
         if(command ==='help'){
             msg.channel.send(`> Current Prefix is ${config.prefix}\n> Commands are:\n> help : view commands\n> tts + message : make the bot send tts message\n> search + anime title : search for an anime using the MyAnimeList API\n> info : info about the bot\n> src: view source code of the bot`) 
@@ -61,8 +63,25 @@ client.on('message', async (msg)=>{
         }
         else if(command==='src')
         {
-            msg.channel
+            msg.channel.send('https://github.com/beefysalad/Discord-Bot-JS/blob/main/Discord%20Bot%20Javascript/main.js')
         }
+        else if(command==='j')
+        {
+            const connection = await msg.member.voice.channel.join()
+            const dispatcher = connection.play('./topibakat2.mp3',{volume: 0.5})
+            dispatcher.on('start',()=>{
+                console.log('playing')
+            })
+            dispatcher.on('finish',()=>{
+                console.log('finished playing')
+            })
+            dispatcher.on('error',console.error)
+        }
+        else if(command==='l')
+        {
+            const conn = msg.member.voice.channel.leave()
+        }
+     
     }
     catch(error)
     {
@@ -85,7 +104,6 @@ const fetchAnimeInfo = async (title) =>{
                     }
                 }
     const res = await axios.get(`https://jikan1.p.rapidapi.com/search/anime`,c)
-    // return `${res.data.results[0].image_url} \n Synopsis: ${res.data.results[0].synopsis}`
     return res.data
 }
 client.login(config.token)
