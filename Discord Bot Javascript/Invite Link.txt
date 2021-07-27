@@ -1,3 +1,2 @@
-https://discord.com/api/oauth2/authorize?client_id=869164654834905118&permissions=0&scope=bot
-https://discord.com/api/oauth2/authorize?client_id=869164654834905118&permissions=0&scope=bot
+
 https://discord.com/api/oauth2/authorize?client_id=869164654834905118&permissions=2216164416&scope=bot
